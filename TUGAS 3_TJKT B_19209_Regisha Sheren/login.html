@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="bootstrap.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="slide.css">
+    <title>Login | Hotspot</title>
+</head>
+
+<body class="text-center body-flex">
+     $(if chap-id)
+    <form name="sendin" action="$(link-login-only)" method="post">
+        <input type="hidden" name="username" />
+        <input type="hidden" name="password" />
+        <input type="hidden" name="dst" value="$(link-orig)" />
+        <input type="hidden" name="popup" value="true" />
+    </form>
+    
+    <script type="text/javascript" src="/md5.js"></script>
+    <script type="text/javascript">
+    <!--
+        function doLogin() {
+        document.sendin.username.value = document.login.username.value;
+        document.sendin.password.value = hexMD5('$(chap-id)' + document.login.password.value + '$(chap-challenge)'); document.sendin.submit();
+        return false;
+        }
+    //-->
+    </script>
+    $(endif)
+
+    <form class="form-login" name="login" action="$(link-login-only)" method="post"
+                        $(if chap-id) onSubmit="return doLogin()" $(endif)>
+    <input type="hidden" name="dst" value="$(link-orig)" />
+    <input type="hidden" name="popup" value="true" />
+        <img src="logo.png" width="72" height="72">
+        <h1 class="h3 mb-3">Login Internet</h1>
+        <div class="scroll-left mb-2"> <p>Nikmati akses internet gratis tanpa batas!</p></div>
+        <div> <input type="text" name="username" class="form-control mb-2" placeholder="Masukkan Username" autofocus></div>
+        <div> <input type="password" name="password" class="form-control mb-2" placeholder="Masukkan Password" required></div>
+        
+        <div> <button class="btn btn-lg btn-primary " type="submit">Login</button></div>
+
+        <div class="notice" style="color: #c1c1c1; font-size: 9px">Please log on to use the internet hotspot service<br />$(if trial == 'yes')Free trial available, <a style="color: #FF8080"href="$(link-login-only)?dst=$(link-orig-esc)&amp;username=T-$(mac-esc)">click here</a>.$(endif)</div> <br />
+        
+        <div class="slides mb-1">
+            <div class="slide"><img src="img/111.jpg"></div>
+            <div class="slide"><img src="img/333.jpg"></div>
+            <div class="slide"><img src="img/222.jpg"></div>
+            <div class="navigation">
+                <a class="prev prev-btn" onclick="plusSlides(-1)">&#10094;</a>
+                <a class="next prev-btn" onclick="plusSlides(-1)">&#10095;</a>
+            </div>
+        </div>
+
+        <div>
+            <a class="footer" href="https://smkn4ptk.sch.id" target="_blank">Powered by Regisha Sheren</a>
+        </div>
+    </form>
+    <script src="slider.js"> </script>
+    <script type="text/javascript">
+<!--
+  document.login.username.focus();
+//-->
+</script>
+</script>                              
+</body>
+</html>
